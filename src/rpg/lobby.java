@@ -18,7 +18,7 @@ public class lobby {
 		System.out.println("2. 마법사");
 		System.out.println("3. 도적");
 		int job = sc.nextInt();
-		sc.nextLine(); // 버퍼 비우기
+		sc.nextLine();
 
 		character player = new character(name, job == 1 ? "전사" : job == 2 ? "마법사" : "도적");
 
@@ -34,7 +34,7 @@ public class lobby {
 			System.out.println("5. 나가기");
 			System.out.print("명령어를 선택해주세요 : ");
 			cmd = sc.nextInt();
-			sc.nextLine(); // 버퍼 비우기
+			sc.nextLine();
 
 			switch (cmd) {
 			case 1:

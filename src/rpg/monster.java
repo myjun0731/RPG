@@ -31,14 +31,13 @@ public class monster {
         player.setHp(player.getHp() - damage);
         System.out.println("플레이어에게 " + damage + "의 피해를 입혔습니다.");
     }
-
+    
     private int calculateDamage() {
         Random rand = new Random();
         return rand.nextInt(10) + attack;
     }
 
 	public String getName() {
-		// TODO Auto-generated method stub
 		return name;
 	}
 }

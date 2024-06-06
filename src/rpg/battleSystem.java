@@ -48,7 +48,7 @@ public class battleSystem {
                 System.out.println("몬스터에게 " + playerDamage + "의 피해를 입혔습니다.");
                 break;
             case 2:
-                // 방어 기능 구현
+                // 방어 기능 구현(진행중)
                 break;
             default:
                 System.out.println("잘못된 입력입니다. 턴을 종료합니다.");

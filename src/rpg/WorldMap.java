@@ -3,11 +3,10 @@ package rpg;
 import java.util.HashMap;
 
 public class WorldMap {
-    private HashMap<String, String> locationInfo; // 지역 이름과 해당 지역의 정보를 매핑
+    private HashMap<String, String> locationInfo;
 
     public WorldMap() {
         locationInfo = new HashMap<>();
-        // 세계 지도 초기화
         initializeMap();
     }
 
