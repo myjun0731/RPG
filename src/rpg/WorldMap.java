@@ -12,12 +12,9 @@ public class WorldMap {
     }
 
     private void initializeMap() {
-        // 세계 지도를 초기화합니다.
-        // 예시로 몇 개의 지역을 추가합니다.
         locationInfo.put("마을", "마을 정보...");
         locationInfo.put("숲", "숲 정보...");
         locationInfo.put("동굴", "동굴 정보...");
-        // 추가적인 지역 초기화 작업을 수행할 수 있습니다.
     }
 
     // 지도 출력 메서드
