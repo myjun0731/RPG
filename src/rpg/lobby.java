@@ -7,37 +7,23 @@ public class lobby {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        character player = new character("no name", "전사");
         int cmd;
-        // 이름 입력
+
+        // 캐릭터 생성
         System.out.println("캐릭터를 생성합니다. 이름을 입력하세요:");
         String name = sc.nextLine();
 
-        // 직업 선택
         System.out.println("직업을 선택하세요:");
         System.out.println("1. 전사");
         System.out.println("2. 마법사");
         System.out.println("3. 도적");
         int job = sc.nextInt();
+        sc.nextLine(); // 버퍼 비우기
 
-        switch (job) {
-            case 1:
-                player = new character(name, "전사");
-                break;
-            case 2:
-                player = new character(name, "마법사");
-                break;
-            case 3:
-                player = new character(name, "도적");
-                break;
-            default:
-                System.out.println("잘못된 선택입니다. 기본값으로 전사로 생성됩니다.");
-                player = new character(name, "전사");
-                break;
-        }
+        character player = new character(name, job == 1 ? "전사" : job == 2 ? "마법사" : "도적");
 
-        WorldMap worldMap = new WorldMap(); // 예시로 5x5 세계 지도 생성
-        worldMap.updateLocationInfo("마을", "마을"); // 캐릭터의 초기 위치 설정
+        WorldMap worldMap = new WorldMap();
+        worldMap.updateLocationInfo("마을", "마을");
 
         while (true) {
             System.out.println("<메인 명령어 목록>");
@@ -48,12 +34,14 @@ public class lobby {
             System.out.println("5. 나가기");
             System.out.print("명령어를 선택해주세요 : ");
             cmd = sc.nextInt();
+            sc.nextLine(); // 버퍼 비우기
+
             switch (cmd) {
                 case 1:
                     player.displayInfo();
                     break;
                 case 2:
-                    callShopMenu(player);
+                    callShopMenu(player, sc);
                     break;
                 case 3:
                     worldMap.displayMap();
@@ -68,13 +56,10 @@ public class lobby {
         }
     }
 
-    // 캐릭터 이동 기능 구현 메서드 추가
     public static void moveCharacter(character player, WorldMap worldMap, Scanner sc) {
-        // 이동할 지역 이름 입력 받기
         System.out.print("이동할 지역 이름을 입력하세요: ");
-        String destination = sc.next();
+        String destination = sc.nextLine();
 
-        // 입력한 지역 이름으로 이동
         if (worldMap.isValidLocation(destination)) {
             if (destination.equals(player.getLocation())) {
                 System.out.println("이미 해당 지역에 있습니다. 이동이 불필요합니다.");
@@ -84,8 +69,6 @@ public class lobby {
                     monster monster = generateRandomMonster();
                     battleSystem battleSystem = new battleSystem(player, monster, sc);
                     battleSystem.startBattle();
-                } else if (destination.equals("마을")) {
-                    System.out.println("이 지역에서는 몬스터가 출현하지 않습니다.");
                 }
                 player.move(destination);
                 System.out.println("이동했습니다. 새로운 위치: " + destination);
@@ -97,30 +80,28 @@ public class lobby {
 
     private static monster generateRandomMonster() {
         Random rand = new Random();
-        int monsterType = rand.nextInt(3); // 총 3종류의 몬스터가 있다고 가정
-        switch (monsterType) {
+        switch (rand.nextInt(3)) {
             case 0:
                 return new monster("고블린", 100, 20);
             case 1:
                 return new monster("오크", 150, 30);
-            case 2:
-                return new monster("드래곤", 200, 50);
             default:
-                return new monster("고블린", 100, 20);
+                return new monster("드래곤", 200, 50);
         }
     }
 
-    public static void callShopMenu(character player) {
+    public static void callShopMenu(character player, Scanner sc) {
         if (!player.getLocation().equals("마을")) {
             System.out.println("상점은 마을에서만 이용할 수 있습니다.");
             return;
         }
 
-        Scanner sc = new Scanner(System.in);
         System.out.println("상점에 입장하시겠습니까? (y/n)");
         char answer = sc.next().charAt(0);
+        sc.nextLine(); // 버퍼 비우기
+
         if (answer == 'y') {
-            shop.shopMenu(player);
+            shop.shopMenu(player, sc);
         } else if (answer == 'n') {
             System.out.println("메인으로 돌아갑니다.");
         } else {

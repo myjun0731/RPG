@@ -13,10 +13,6 @@ public class monster {
         this.attack = attack;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getHp() {
         return hp;
     }
@@ -40,4 +36,9 @@ public class monster {
         Random rand = new Random();
         return rand.nextInt(10) + attack;
     }
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
 }
