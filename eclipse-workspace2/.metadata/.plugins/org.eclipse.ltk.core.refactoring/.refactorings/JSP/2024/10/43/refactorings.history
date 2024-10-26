@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;ConnectionTest.jsp, ExeQuery.jsp, ExeUpdate.jsp, input.jsp, LoginForm.jsp, LoginProcess.jsp, Logout.jsp, sql.sql, web.xml&apos; to &apos;Class1&apos;" description="Move 9 resources to &apos;Class1&apos;" destination="src/main/webapp/Class1" element1="src/main/webapp/ConnectionTest.jsp" element2="src/main/webapp/ExeQuery.jsp" element3="src/main/webapp/ExeUpdate.jsp" element4="src/main/webapp/input.jsp" element5="src/main/webapp/LoginForm.jsp" element6="src/main/webapp/LoginProcess.jsp" element7="src/main/webapp/Logout.jsp" element8="src/main/webapp/sql.sql" element9="src/main/webapp/web.xml" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="9" stamp="1729932384350" updateReferences="true"/>
+</session>
