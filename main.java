@@ -98,10 +98,16 @@ public class main {
 
 	private static void Quest() {
 		// TODO Auto-generated method stub
-		System.out.println("[퀘스트]");
-		System.out.println("[퀘스트]");
 		LocalTime lct = LocalTime.now();
-		System.out.println("현재 시간: " + lct);
+		System.out.println("[퀘스트]");
+		String obj = "15:00:00.000000000";
+		
+		if (lct.equals(obj)) {
+			System.out.println(lct);
+			System.out.println("3시가 아닙니다.");
+
+		}
+
 	}
 
 	public static void main(String[] args) {
