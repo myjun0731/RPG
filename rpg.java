@@ -1,15 +1,15 @@
-package lobby;
+package rpg;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //C:\Users\Uefi\eclipse-workspace
-public class main {
+public class rpg {
 	static Scanner sc = new Scanner(System.in);
 	final static int Max_Inventory = 30;
 	static int Map_Location = 0;
+	static String Ch_job = "무직";
 	static ArrayList<String> Inventory = new ArrayList<String>();
 	final static String Map[] = { "마을", "숲", "바다", "지하" };
 	final static String item[] = { "검", "활", "방패", "단검" };
@@ -94,19 +94,21 @@ public class main {
 		Map_Location = sc.nextInt();
 		System.out.println(Map[Map_Location] + "(으)로 이동했습니다.");
 
+		if (Map[Map_Location].equals(Map[0])) {
+			System.out.println("[!] PvP 금지구역입니다.");
+		} else if (Map[Map_Location].equals(Map[1])) {
+			System.out.println("[!] PvP 가능구역입니다.");
+		} else if (Map[Map_Location].equals(Map[2])) {
+			System.out.println("[!] PvP 가능구역입니다.");
+		} else if (Map[Map_Location].equals(Map[3])) {
+			System.out.println("[!] PvP 가능구역이며 상점 이용이 불가합니다.");
+		}
+
 	}
 
 	private static void Quest() {
 		// TODO Auto-generated method stub
-		LocalTime lct = LocalTime.now();
-		System.out.println("[퀘스트]");
-		String obj = "15:00:00.000000000";
-		
-		if (lct.equals(obj)) {
-			System.out.println(lct);
-			System.out.println("3시가 아닙니다.");
-
-		}
+		System.out.println("[!] 퀘스트가 없습니다.");
 
 	}
 
